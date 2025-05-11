@@ -3,6 +3,34 @@
   <head>
     <title>WEB1 - JavaScript</title>
     <meta charset="utf-8" />
+    <script>
+      function nightDayHandler(self) {
+        var target = document.querySelector("body");
+        if (self.value === "night") {
+          target.style.backgroundColor = "black";
+          target.style.color = "white";
+          self.value = "day";
+
+          var alist = document.querySelectorAll("a");
+          var i = 0;
+          while (i < alist.length) {
+            alist[i].style.color = "powderblue";
+            i = i + 1;
+          }
+        } else {
+          target.style.backgroundColor = "white";
+          target.style.color = "black";
+          self.value = "night";
+
+          var alist = document.querySelectorAll("a");
+          var i = 0;
+          while (i < alist.length) {
+            alist[i].style.color = "blue";
+            i = i + 1;
+          }
+        }
+      }
+    </script>
     <style>
       .js {
         font=weight: bold;
@@ -20,22 +48,21 @@
     <h1><a href="index.html">WEB</a></h1>
 
     <input
+      id="night_day"
       type="button"
       value="night"
       onclick="
-      var target = document.querySelector('body');
-     if(this.value === 'night') {
-        target.style.backgroundColor = 'black';
-        target.style.color = 'white';
-        this.value = 'day';
-      } else {
-        target.style.backgroundColor = 'white';
-        target.style.color = 'black';
-        this.value = 'night';
-      }
+        nightDayHandler(this);
     "
     />
-
+    <input
+      id="night_day"
+      type="button"
+      value="night"
+      onclick="
+        nightDayHandler(this);
+    "
+    />
     <ol>
       <li><a href="1.html">HTML</a></li>
       <li><a href="2.html">CSS</a></li>
@@ -55,21 +82,5 @@
       use it,[8] and all major web browsers have a dedicated
       <span class="js">JavaScript</span> engine to execute it.
     </p>
-
-    <input
-      type="button"
-      value="night"
-      onclick="
-     if(this.value === 'night') {
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';
-        this.value = 'day';
-      } else {
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-        this.value = 'night';
-      }
-    "
-    />
   </body>
 </html>
